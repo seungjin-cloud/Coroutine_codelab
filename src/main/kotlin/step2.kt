@@ -1,7 +1,22 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import kotlin.system.*
+import kotlinx.coroutines.*
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun main() {
+    val time = measureTimeMillis {
+        runBlocking {
+            println("Weather forecast")
+            printForecast()
+            printTemperature()
+        }
+    }
+    println("Execution time: ${time / 1000.0} seconds")
+}
+suspend fun printForecast() {
+    delay(1000)
+    println("Sunny")
+}
+
+suspend fun printTemperature() {
+    delay(1000)
+    println("30\u00b0C")
 }
