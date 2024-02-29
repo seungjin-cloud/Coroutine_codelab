@@ -2,9 +2,13 @@ import kotlinx.coroutines.*
 
 fun main() {
     runBlocking {
-        println("Weather forecast")
-        println(getWeatherReport())
-        println("Have a good day!")
+        launch {
+            withContext(Dispatchers.Default) {
+                delay(1000)
+                println("10 results found.")
+            }
+        }
+        println("Loading...")
     }
 }
 
